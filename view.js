@@ -1,11 +1,11 @@
 // ---- Define your dialogs  and panels here ----
 var files = [];
-let side_title = document.createElement('p');
-let title_text = document.createTextNode('Check current permissions.');
+let side_title = document.createElement('h3');
+let title_text = document.createTextNode('Check up-to-date effective permissions.');
 side_title.append(title_text)
 $('#sidepanel').append(side_title)
 
-
+// for select file
 let file_p = document.createElement('p');
 let file_text = document.createTextNode("1. Select a file or a folder.");
 file_p.append(file_text)
@@ -16,11 +16,8 @@ var select_list = document.createElement("select");
 select_list.id = 'select_file'
 form.appendChild(select_list);
 $('#sidepanel').append(form);
-
-
         
-
-
+// for select user
 side_title = document.createElement('p');
 title_text = document.createTextNode('2. Select a user');
 side_title.append(title_text)
@@ -33,28 +30,24 @@ let new_select = define_new_user_select_field('permission', 'Select user', on_us
     $('#permission').attr('username', selected_user)
     $('#permission').attr('filepath', document.getElementById("select_file").value)
 })
-
-// for select user
 $('#sidepanel').append(new_select)
 
-
-
-// for select file
-
     
-    
-
-
+// for info panel
 let panel_info = document.createElement('p');
 let info_text = document.createTextNode("3. Allowed permissions has a check mark (✓) in front of it. Click the icon to check full explanation of the permission.");
 panel_info.append(info_text)
 $('#sidepanel').append(panel_info)
-
-
-
 $('#sidepanel').append(new_per)
 
 
+// for instruction
+side_title = document.createElement('h3');
+title_text = document.createTextNode('Quick notes:');
+side_title.append(title_text)
+$('#sidepanel').append(side_title)
+about_changeable = $('<div class="about"><b>Changeable permissions</b> are any permissions except for <b>reading</b>. </div>')
+$('#sidepanel').append(about_changeable)
 
 // ---- Display file structure ----
 let dialog = define_new_dialog("dialog", 'Permission Information', options = {});

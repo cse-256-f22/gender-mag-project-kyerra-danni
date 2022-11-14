@@ -28,3 +28,12 @@
 .top-banner-button:hover {
     background-color: rgb(255, 97, 40);
 }
+
+.sub-title {
+    color: blue;
+    font-size: 14px;
+}
+
+.about {
+    color: rgb(255, 97, 40);
+}

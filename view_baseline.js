@@ -364,7 +364,7 @@ $('#adv_perm_inheritance').change(function(){
             position: { my: "top", at: "top", of: $('#html-loc') },
             buttons: {
                 Add: {
-                    text: "Add",
+                    text: "Add User",
                     id: "adv-inheritance-add-button",
                     click: function() {
                         let filepath = $('#advdialog').attr('filepath')
@@ -376,7 +376,7 @@ $('#adv_perm_inheritance').change(function(){
                     },
                 },
                 Remove: {
-                    text: "Remove",
+                    text: "Remove User",
                     id: "adv-inheritance-remove-button",
                     click: function() {
                         let filepath = $('#advdialog').attr('filepath')

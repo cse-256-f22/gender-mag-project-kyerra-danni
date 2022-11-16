@@ -91,10 +91,12 @@
                 <div title="Permission Entry" id="permentry">
                     <div id="perm_entry_inheritance_explanation" style="display:none" class="section">This permission is
                         inherited from the parent object. Make changes here to override the inherited permissions.</div>
-                    <span id="perm_entry_name_text">Name: </span>
+                    <span id="perm_entry_name_text">User: </span>
+                    <div class="about"><b>Changeable permissions</b> are any permissions except for <b>reading</b>. </div>
+                    <div class="deny">Check <b>Deny</b> to block any permissions that is currently unclickable (inheritable).</div>
                     <span id="perm_entry_username" class="ui-widget-content section"
                         style="width:200px;display:inline-block;"></span>
-                    <button id="perm_entry_change_user" class="ui-button ui-widget ui-corner-all">Change...</button>
+                    <button id="perm_entry_change_user" class="ui-button ui-widget ui-corner-all">Select</button>
                     <table id="perm_entry_table" class="ui-widget-content section">
                         <tr id="perm_entry_header">
                             <th id="perm_entry_header_p" width="99%">Permissions</th>
@@ -110,8 +112,8 @@
                             <li id="advtab_title_permissions"><a href="#adv_permissions_tab"
                                     id="adv_permissions_tab_elem">Permissions</a></li>
                             <li id="advtab_title_owner"><a href="#adv_owner_tab" id="adv_owner_tab_elem">Owner</a></li>
-                            <!-- <li id="advtab_title_effective"><a href="#adv_effective_tab"
-                                    id="adv_effective_tab_elem">Effective Permissions</a></li> -->
+                            <li id="advtab_title_effective"><a href="#adv_effective_tab"
+                                    id="adv_effective_tab_elem">Check Effective Permissions</a></li>
                         </ul>
                         <div id="adv_permissions_tab">
                             <div id="adv_perm_object_name" class="section">Object Name: <span
@@ -128,7 +130,7 @@
                                     </tr>
                                 </table>
                             </div>
-                            <button id="adv_perm_edit" class="ui-button ui-widget ui-corner-all">Edit...</button>
+                            <button id="adv_perm_edit" class="ui-button ui-widget ui-corner-all">Edit Permissions</button>
                             <div id="adv_perm_inheritance_div">
                                 <input type="checkbox" id="adv_perm_inheritance" name="inherit">
                                 <label for="adv_perm_inheritance" id="adv_perm_inheritance_label">Include inheritable
@@ -154,7 +156,7 @@
                                 Owner</button>
                         </div>
                         <div id="adv_effective_tab">
-                            <div id="adv_effective_object_name" class="section">Object Name: <span
+                            <div id="adv_effective_object_name" class="section">Path: <span
                                     id="adv_effective_filepath"></span></div>
                             <div id="adv_effective_user_text">Group or user name:</div>
                             <div id="adv_effective_current_user_line" class="section">

@@ -18,7 +18,7 @@ perm_dialog = define_new_dialog('permdialog', title='Permissions', options = {
             }
         },
         Advanced: {
-            text: "Edit Special Permissions",
+            text: "Advanced",
             id: "perm-dialog-advanced-button",
             click: function() {
                 open_advanced_dialog(perm_dialog.attr('filepath'))
@@ -32,11 +32,11 @@ perm_dialog = define_new_dialog('permdialog', title='Permissions', options = {
 obj_name_div = $('<div id="permdialog_objname" class="section"><span class="sub-title">Current file or folder is: </span><span id="permdialog_objname_namespan"></span> </div>')
 
 //Make the div with the explanation about special permissions/advanced settings:
-advanced_expl_div = $('<div id="permdialog_advanced_explantion_text">For special permissions or advanced settings, click <b>Edit Special Permissions</b>.</div>')
+advanced_expl_div = $('<div id="permdialog_advanced_explantion_text">For special permissions or advanced settings, click <b>Advanced</b>.</div>')
 
 // added instructions
-
-about_deny = $('<div class="about">Check <b>Deny</b> to block any permissions given to a user through inheritance.</div>')
+about_changeable = $('<div class="about"><b>Changeable permissions</b> are any permissions except for <b>reading</b>. </div>')
+about_deny = $('<div class="deny">Check <b>Deny</b> to block any permissions that is currently unclickable (inheritable).</div>')
 
 // Make the (grouped) permission checkboxes table:
 grouped_permissions = define_grouped_permission_checkboxes('permdialog_grouped_permissions')
@@ -154,6 +154,7 @@ perm_dialog.append(file_permission_users)
 perm_dialog.append(perm_add_user_select)
 perm_add_user_select.append(perm_remove_user_button) // Cheating a bit again - add the remove button the the 'add user select' div, just so it shows up on the same line.
 perm_dialog.append(about_deny)
+perm_dialog.append(about_changeable)
 perm_dialog.append(grouped_permissions)
 perm_dialog.append(advanced_expl_div)
 
@@ -369,7 +370,7 @@ $('#adv_perm_inheritance').change(function(){
             position: { my: "top", at: "top", of: $('#html-loc') },
             buttons: {
                 Add: {
-                    text: "Add User",
+                    text: "Add",
                     id: "adv-inheritance-add-button",
                     click: function() {
                         let filepath = $('#advdialog').attr('filepath')
@@ -381,7 +382,7 @@ $('#adv_perm_inheritance').change(function(){
                     },
                 },
                 Remove: {
-                    text: "Remove User",
+                    text: "Remove",
                     id: "adv-inheritance-remove-button",
                     click: function() {
                         let filepath = $('#advdialog').attr('filepath')

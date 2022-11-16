@@ -1,7 +1,7 @@
 // ---- Define your dialogs  and panels here ----
 var files = [];
 let side_title = document.createElement('h3');
-let title_text = document.createTextNode('If you are not sure if your changes applied, you can always check up-to-date effective permissions here:');
+let title_text = document.createTextNode('If you are not sure if your changes applied, you can always check up-to-date effective permissions here or in the advanced settings:');
 side_title.append(title_text)
 $('#sidepanel').append(side_title)
 

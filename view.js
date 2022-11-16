@@ -1,7 +1,7 @@
 // ---- Define your dialogs  and panels here ----
 var files = [];
 let side_title = document.createElement('h3');
-let title_text = document.createTextNode('If you are not sure if your changes applied, you can always check up-to-date effective permissions here or in the advanced settings:');
+let title_text = document.createTextNode('If you are not sure if your changes applied, you can always check up-to-date effective permissions here:');
 side_title.append(title_text)
 $('#sidepanel').append(side_title)
 
@@ -27,18 +27,26 @@ side_title.append(title_text)
 side_title2.append(title_text2)
 side_title2.id = 'notice'
 $('#sidepanel').append(side_title)
-$('#sidepanel').append(side_title2)
+// $('#sidepanel').append(side_title2)
 
-
+let add_div = document.createElement('div');
+$('#sidepanel').append(add_div);
+add_div.id = 'add_div'
 let new_per = define_new_effective_permissions('permission', true, null)
-
-//$('#P_field').attr('username', 'administrator')
-let new_select = define_new_user_select_field('permission', 'Select user', on_user_change = function(selected_user){
-    $('#permission').attr('username', selected_user)
-    $('#permission').attr('filepath', document.getElementById("select_file").value)
+document.getElementById("select_file").onchange = function() {
+    console.log("change")
+    $("#add_div").empty();
+    let new_select = define_new_user_select_field('permission', 'Select user', on_user_change = function(selected_user){
+        $('#permission').attr('username', selected_user)
+        $('#permission').attr('filepath', document.getElementById("select_file").value)
+        
+    })
+    console.log( $('#sidepanel'))
+    $('#add_div').append(new_select)
     
-})
-$('#sidepanel').append(new_select)
+}
+//$('#P_field').attr('username', 'administrator')
+
 
     
 // for info panel

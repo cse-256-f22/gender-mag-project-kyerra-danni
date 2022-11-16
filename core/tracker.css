@@ -37,3 +37,7 @@
 .about {
     color: rgb(255, 97, 40);
 }
+#notice {
+    color: red;
+    font-weight: bold;
+}

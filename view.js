@@ -1,7 +1,7 @@
 // ---- Define your dialogs  and panels here ----
 var files = [];
 let side_title = document.createElement('h3');
-let title_text = document.createTextNode('Check up-to-date effective permissions.');
+let title_text = document.createTextNode('If you are not sure if your changes applied, you can always check up-to-date effective permissions here:');
 side_title.append(title_text)
 $('#sidepanel').append(side_title)
 
@@ -10,6 +10,7 @@ let file_p = document.createElement('p');
 let file_text = document.createTextNode("1. Select a file or a folder.");
 file_p.append(file_text)
 $('#sidepanel').append(file_p)
+
 
 var form = document.createElement("form");
 var select_list = document.createElement("select");
@@ -20,8 +21,14 @@ $('#sidepanel').append(form);
 // for select user
 side_title = document.createElement('p');
 title_text = document.createTextNode('2. Select a user');
+side_title2 = document.createElement('p');
+title_text2 = document.createTextNode('* important: If you select another folder after selecting user, please reselect the user.');
 side_title.append(title_text)
+side_title2.append(title_text2)
+side_title2.id = 'notice'
 $('#sidepanel').append(side_title)
+$('#sidepanel').append(side_title2)
+
 
 let new_per = define_new_effective_permissions('permission', true, null)
 
@@ -29,6 +36,7 @@ let new_per = define_new_effective_permissions('permission', true, null)
 let new_select = define_new_user_select_field('permission', 'Select user', on_user_change = function(selected_user){
     $('#permission').attr('username', selected_user)
     $('#permission').attr('filepath', document.getElementById("select_file").value)
+    
 })
 $('#sidepanel').append(new_select)
 
@@ -47,7 +55,9 @@ title_text = document.createTextNode('Quick notes:');
 side_title.append(title_text)
 $('#sidepanel').append(side_title)
 about_changeable = $('<div class="about"><b>Changeable permissions</b> are any permissions except for <b>reading</b>. </div>')
+about_save = $('<div class="about">Always click <b>OK</b> when you want to save your changes. </div>')
 $('#sidepanel').append(about_changeable)
+$('#sidepanel').append(about_save)
 
 // ---- Display file structure ----
 let dialog = define_new_dialog("dialog", 'Permission Information', options = {});
@@ -107,6 +117,7 @@ function make_file_element(file_obj) {
                 <span class="oi oi-folder" id="${file_hash}_icon"/> ${file_obj.filename} 
                 <button class="ui-button ui-widget ui-corner-all permbutton" path="${file_hash}" id="${file_hash}_permbutton"> 
                     <span class="oi oi-lock-unlocked" id="${file_hash}_permicon"/> 
+                    Edit Permissions
                 </button>
             </h3>
         </div>`)
@@ -128,6 +139,7 @@ function make_file_element(file_obj) {
             <span class="oi oi-file" id="${file_hash}_icon"/> ${file_obj.filename}
             <button class="ui-button ui-widget ui-corner-all permbutton" path="${file_hash}" id="${file_hash}_permbutton"> 
                 <span class="oi oi-lock-unlocked" id="${file_hash}_permicon"/> 
+                Edit Permissions
             </button>
         </div>`)
     }

@@ -1,9 +1,14 @@
 // ---- Define your dialogs  and panels here ----
 var files = [];
 let side_title = document.createElement('h3');
-let title_text = document.createTextNode('If you are not sure if your changes applied, you can always check up-to-date effective permissions here:');
+let side_title2 = document.createElement('h4');
+let title_text = document.createTextNode('If you are not sure if your changes applied or if some checked permission is truly effective, you can always check up-to-date effective permissions here:');
+let example_text = document.createTextNode("e.g. Some of the Teaching Assistant's checked permissions are not truly effective as shown in the edit window.");
 side_title.append(title_text)
+side_title2.append(example_text)
+side_title2.className += "about";
 $('#sidepanel').append(side_title)
+$('#sidepanel').append(side_title2)
 
 // for select file
 let file_p = document.createElement('p');
